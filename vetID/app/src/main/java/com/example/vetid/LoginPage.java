@@ -2,6 +2,7 @@ package com.example.vetid;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -38,6 +39,13 @@ public class LoginPage extends AppCompatActivity {
 
                     Toast.makeText(getApplicationContext(),"Success",Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        signUpRedirect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginPage.this,RegisterPage.class));
             }
         });
     }
