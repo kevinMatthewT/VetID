@@ -22,7 +22,7 @@ public class LoginPage extends AppCompatActivity {
 
 
         emailUsername =findViewById(R.id.emailForm);
-        userPassword= findViewById(R.id.emailForm);
+        userPassword= findViewById(R.id.passwordForm);
         login =findViewById(R.id.loginButton);
         forgotPassword =findViewById(R.id.forgotPassword);
         signUpRedirect =findViewById(R.id.signUp);
