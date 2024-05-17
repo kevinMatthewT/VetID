@@ -15,7 +15,7 @@ public class HomePage extends AppCompatActivity {
 
     TextView GroomingPage,HealthPage,ForumPage,SuppliesPage;
 
-    Button logout;
+    Button logout,tempo;
 
     FirebaseAuth fAuth;
     @Override
@@ -30,6 +30,8 @@ public class HomePage extends AppCompatActivity {
 
         logout=findViewById(R.id.logOutButton);
         fAuth= FirebaseAuth.getInstance();
+
+        tempo=findViewById(R.id.temporaryButton);
 
         GroomingPage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,5 +74,12 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
+        tempo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),DoctorPage.class));
+                finish();
+            }
+        });
     }
 }
