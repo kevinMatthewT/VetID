@@ -9,9 +9,15 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class HomePage extends AppCompatActivity {
 
     TextView GroomingPage,HealthPage,ForumPage,SuppliesPage;
+
+    Button logout;
+
+    FirebaseAuth fAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,10 +28,14 @@ public class HomePage extends AppCompatActivity {
         HealthPage=findViewById(R.id.healthMenu);
         SuppliesPage=findViewById(R.id.suppliesMenu);
 
+        logout=findViewById(R.id.logOutButton);
+        fAuth= FirebaseAuth.getInstance();
+
         GroomingPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(HomePage.this,GroomingPage.class));
+                finish();
             }
         });
 
@@ -33,6 +43,7 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(HomePage.this,HealthPage.class));
+                finish();
             }
         });
 
@@ -40,6 +51,7 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(HomePage.this,ForumPage.class));
+                finish();
             }
         });
 
@@ -47,6 +59,16 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(HomePage.this,SuppliesPage.class));
+                finish();
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fAuth.signOut();
+                startActivity(new Intent(getApplicationContext(),LoginPage.class));
+                finish();
             }
         });
 

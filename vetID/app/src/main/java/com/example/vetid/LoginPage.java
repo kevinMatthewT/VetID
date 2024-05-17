@@ -50,8 +50,6 @@ public class LoginPage extends AppCompatActivity {
         signUpRedirect =findViewById(R.id.signUp);
         mAuth=FirebaseAuth.getInstance();
 
-        signup=findViewById(R.id.signUpButton);
-
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,17 +86,12 @@ public class LoginPage extends AppCompatActivity {
         signUpRedirect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent redirect= new Intent(getApplicationContext(),HomePage.class);
+                Intent redirect= new Intent(getApplicationContext(),RegisterPage.class);
                 startActivity(redirect);
+                finish();
             }
         });
 
-        signup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent redirect= new Intent(getApplicationContext(),RegisterPage.class);
-                startActivity(redirect);
-            }
-        });
+
     }
 }
