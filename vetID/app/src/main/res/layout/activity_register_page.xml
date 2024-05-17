@@ -19,9 +19,10 @@
         app:layout_constraintHorizontal_bias="0.317"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.469" />
+        app:layout_constraintVertical_bias="0.169" />
 
-    <com.google.android.material.textfield.TextInputLayout
+    <EditText
+        android:id="@+id/emailForm"
         android:layout_width="303dp"
         android:layout_height="49dp"
         android:ems="10"
@@ -30,17 +31,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.687" >
+        app:layout_constraintVertical_bias="0.687"
+        android:hint="enter email"
+        android:background="@color/LightBlue"
+        android:padding="20px"/>
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/passwordForm"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:hint="enter password"
-        android:background="@color/LightBlue"/>
-    </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
+    <EditText
+        android:id="@+id/phoneForm"
+        android:hint="enter phone number"
+        android:background="@color/LightBlue"
         android:layout_width="303dp"
         android:layout_height="49dp"
         android:ems="10"
@@ -49,17 +49,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.586" >
+        app:layout_constraintVertical_bias="0.586"
+        android:padding="20px"/>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/emailForm"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="enter email"
-            android:background="@color/LightBlue"/>
-
-
-    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/textView2"
@@ -95,8 +87,40 @@
         android:text="Register"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.835"
+        app:layout_constraintHorizontal_bias="0.825"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.771" />
+        app:layout_constraintVertical_bias="0.875" />
+
+
+    <EditText
+        android:id="@+id/passwordForm"
+        android:layout_width="303dp"
+        android:layout_height="49dp"
+        android:background="@color/LightBlue"
+        android:ems="10"
+        android:hint="enter password"
+        android:inputType="textEmailAddress"
+        android:padding="20px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.788" />
+
+    <EditText
+        android:id="@+id/usernameForm"
+        android:layout_width="303dp"
+        android:layout_height="49dp"
+        android:background="@color/LightBlue"
+        android:ems="10"
+        android:hint="enter username"
+        android:inputType="textEmailAddress"
+        android:padding="20px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.482" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

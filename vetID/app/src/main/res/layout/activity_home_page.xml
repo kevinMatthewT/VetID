@@ -36,29 +36,13 @@
 
     </LinearLayout>
 
-    <ScrollView
-        android:layout_width="406dp"
-        android:layout_height="279dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.856"
-        android:background="@drawable/border">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            />
-    </ScrollView>
 
     <TextView
         android:id="@+id/groomingMenu"
         android:layout_width="149dp"
         android:layout_height="98dp"
-        android:background="@drawable/groomingImage"
+        android:background="@drawable/grooming_image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.156"
@@ -70,7 +54,7 @@
         android:id="@+id/healthMenu"
         android:layout_width="149dp"
         android:layout_height="98dp"
-        android:background="@drawable/healthImage"
+        android:background="@drawable/health_image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.889"
@@ -82,7 +66,7 @@
         android:id="@+id/forumMenu"
         android:layout_width="149dp"
         android:layout_height="98dp"
-        android:background="@drawable/forumImage"
+        android:background="@drawable/forum_image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.156"
@@ -94,7 +78,7 @@
         android:id="@+id/suppliesMenu"
         android:layout_width="149dp"
         android:layout_height="98dp"
-        android:background="@drawable/suppliesImage"
+        android:background="@drawable/supplies_image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.893"

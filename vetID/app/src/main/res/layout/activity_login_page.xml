@@ -22,7 +22,8 @@
         app:layout_constraintVertical_bias="0.469" />
 
 
-    <com.google.android.material.textfield.TextInputLayout
+    <EditText
+        android:id="@+id/passwordForm"
         android:layout_width="303dp"
         android:layout_height="49dp"
         android:ems="10"
@@ -31,16 +32,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.687" >
+        app:layout_constraintVertical_bias="0.687"
+        android:hint="enter password"
+        android:background="@color/LightBlue"
+        android:padding="20px"/>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/passwordForm"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="enter password"
-            android:background="@color/LightBlue"/>
 
-    </com.google.android.material.textfield.TextInputLayout>
+    <EditText
+        android:id="@+id/emailForm"
+        android:hint="enter email"
+        android:background="@color/LightBlue"
+        android:layout_width="303dp"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.586"
+        android:padding="20px"/>
 
     <TextView
         android:id="@+id/forgotPassword"
@@ -54,27 +65,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.74" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="303dp"
-        android:layout_height="49dp"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.586" >
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/emailForm"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="enter email"
-            android:background="@color/LightBlue"/>
-
-
-    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/textView2"
@@ -93,7 +83,7 @@
         android:id="@+id/signUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign up"
+        android:text="Sign up plz"
         android:textColor="@color/RedText"
         android:textSize="40px"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -114,5 +104,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.771" />
+
+    <Button
+        android:id="@+id/signUpButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="to register 3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.91" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,8 +21,8 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LoginPage extends AppCompatActivity {
 
-    TextInputEditText emailUsername,userPassword;
-    Button login;
+    EditText emailUsername,userPassword;
+    Button login,signup;
     TextView forgotPassword, signUpRedirect;
     FirebaseAuth mAuth;
 
@@ -49,6 +49,8 @@ public class LoginPage extends AppCompatActivity {
         forgotPassword =findViewById(R.id.forgotPassword);
         signUpRedirect =findViewById(R.id.signUp);
         mAuth=FirebaseAuth.getInstance();
+
+        signup=findViewById(R.id.signUpButton);
 
 
         login.setOnClickListener(new View.OnClickListener() {
@@ -86,7 +88,16 @@ public class LoginPage extends AppCompatActivity {
         signUpRedirect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginPage.this,RegisterPage.class));
+                Intent redirect= new Intent(getApplicationContext(),HomePage.class);
+                startActivity(redirect);
+            }
+        });
+
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent redirect= new Intent(getApplicationContext(),RegisterPage.class);
+                startActivity(redirect);
             }
         });
     }
