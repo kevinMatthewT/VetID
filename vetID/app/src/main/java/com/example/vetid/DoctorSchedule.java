@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -129,12 +130,30 @@ public class DoctorSchedule extends AppCompatActivity  {
                 schedule.put("patient_email",null);
                 schedule.put("patient_phone",null);
 
+                DocumentReference documentReferenceAppointments=fstore.collection("appointment").document(uuid.toString());
+
+                Map<String,Object> appointment= new HashMap<>();
+                appointment.put("title",formTitle);
+                appointment.put("description",formDescription);
+                appointment.put("price",formPrice);
+                appointment.put("time",formTime);
+                appointment.put("date",formDate);
+                appointment.put("animal",formAnimal);
+                appointment.put("address",formAddress);
+                appointment.put("patient_name",null);
+                appointment.put("patient_email",null);
+                appointment.put("patient_phone",null);
+                appointment.put("doctor_UID",UID);
+
                 documentReferenceDoctors.set(schedule).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
                         Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
                     }
                 });
+
+                documentReferenceAppointments.set(appointment);
+
             }
         });
 
