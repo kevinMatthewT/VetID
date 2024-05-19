@@ -78,8 +78,8 @@
 
     <EditText
         android:id="@+id/priceField"
-        android:layout_width="103dp"
-        android:layout_height="35dp"
+        android:layout_width="105dp"
+        android:layout_height="56dp"
         android:background="@drawable/input_field"
         android:ems="10"
         android:hint="Price"
@@ -87,10 +87,10 @@
         android:paddingLeft="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.947"
+        app:layout_constraintHorizontal_bias="0.866"
         app:layout_constraintStart_toStartOf="@+id/linearLayout"
         app:layout_constraintTop_toTopOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.498" />
+        app:layout_constraintVertical_bias="0.537" />
 
     <EditText
         android:id="@+id/descriptionField"
@@ -110,8 +110,8 @@
 
     <TextView
         android:id="@+id/timeField"
-        android:layout_width="132dp"
-        android:layout_height="39dp"
+        android:layout_width="119dp"
+        android:layout_height="52dp"
         android:background="@drawable/input_field"
         android:ems="10"
         android:hint="Time"
@@ -120,15 +120,15 @@
         android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.064"
+        app:layout_constraintHorizontal_bias="0.078"
         app:layout_constraintStart_toStartOf="@+id/linearLayout"
         app:layout_constraintTop_toTopOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.416" />
+        app:layout_constraintVertical_bias="0.431" />
 
     <TextView
         android:id="@+id/dateField"
-        android:layout_width="208dp"
-        android:layout_height="42dp"
+        android:layout_width="203dp"
+        android:layout_height="52dp"
         android:background="@drawable/input_field"
         android:ems="10"
         android:hint="Date"
@@ -137,15 +137,15 @@
         android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.875"
+        app:layout_constraintHorizontal_bias="0.878"
         app:layout_constraintStart_toStartOf="@+id/linearLayout"
         app:layout_constraintTop_toTopOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.417" />
+        app:layout_constraintVertical_bias="0.434" />
 
     <EditText
         android:id="@+id/animalField"
-        android:layout_width="240dp"
-        android:layout_height="37dp"
+        android:layout_width="215dp"
+        android:layout_height="55dp"
         android:background="@drawable/input_field"
         android:ems="10"
         android:hint="Animal"
@@ -153,9 +153,10 @@
         android:paddingLeft="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.106"
+        app:layout_constraintHorizontal_bias="0.087"
         app:layout_constraintStart_toStartOf="@+id/linearLayout"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout" />
+        app:layout_constraintTop_toTopOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.536" />
 
     <EditText
         android:id="@+id/addressField"
@@ -169,10 +170,10 @@
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintHorizontal_bias="0.384"
         app:layout_constraintStart_toStartOf="@+id/linearLayout"
         app:layout_constraintTop_toTopOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.677" />
+        app:layout_constraintVertical_bias="0.719" />
 
     <Button
         android:id="@+id/submitForm"
@@ -184,6 +185,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/linearLayout"
         app:layout_constraintVertical_bias="0.954" />
+
+    <TextView
+        android:id="@+id/usernameDoctor"
+        android:layout_width="166dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toTopOf="@+id/descriptionField"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/titleField"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.5"
+        android:text="bold"
+        android:textSize="30dp"
+        android:visibility="gone"/>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

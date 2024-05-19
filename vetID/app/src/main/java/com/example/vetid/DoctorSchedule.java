@@ -1,5 +1,6 @@
 package com.example.vetid;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
@@ -19,7 +20,10 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import java.util.Calendar;
 import java.util.HashMap;
@@ -30,7 +34,7 @@ import java.text.DateFormat;
 
 public class DoctorSchedule extends AppCompatActivity  {
 
-    TextView goBack,vetIdLogo, time, date;
+    TextView goBack,vetIdLogo, time, date,usernameDoc;
 
     EditText title, description, animal, address, price;
     Button submitFormButton;
@@ -59,6 +63,8 @@ public class DoctorSchedule extends AppCompatActivity  {
         animal=findViewById(R.id.animalField);
         address=findViewById(R.id.addressField);
         price=findViewById(R.id.priceField);
+
+        usernameDoc=findViewById(R.id.usernameDoctor);
 
         fAuth=FirebaseAuth.getInstance();
         fstore=FirebaseFirestore.getInstance();
@@ -97,6 +103,18 @@ public class DoctorSchedule extends AppCompatActivity  {
             }
         });
 
+        UID=fAuth.getCurrentUser().getUid();
+
+
+
+        DocumentReference documentReference=fstore.collection("users").document(UID);
+        documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                usernameDoc.setText(value.getString("username"));
+            }
+        });
+
 
         submitFormButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,13 +126,17 @@ public class DoctorSchedule extends AppCompatActivity  {
                 String formAnimal=String.valueOf(animal.getText());
                 String formAddress=String.valueOf(address.getText());
                 String formPrice=String.valueOf(price.getText());
+                String formDoctor=String.valueOf(usernameDoc.getText());
 
                 if(TextUtils.isEmpty(formTitle)  || TextUtils.isEmpty(formAnimal)||TextUtils.isEmpty(formAddress)){
                     Toast.makeText(getApplicationContext(),"Fill all of the details to create schedule",Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                UID=fAuth.getCurrentUser().getUid();
+
+
+
+
                 UUID uuid = UUID.randomUUID();
                 DocumentReference documentReferenceDoctors=fstore.collection("doctors").document(UID).collection("appointments").document(uuid.toString());
 
@@ -129,6 +151,7 @@ public class DoctorSchedule extends AppCompatActivity  {
                 schedule.put("patient_name",null);
                 schedule.put("patient_email",null);
                 schedule.put("patient_phone",null);
+                schedule.put("doctor_username",formDoctor);
 
                 DocumentReference documentReferenceAppointments=fstore.collection("appointment").document(uuid.toString());
 

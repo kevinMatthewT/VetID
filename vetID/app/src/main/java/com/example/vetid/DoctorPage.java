@@ -94,6 +94,7 @@ public class DoctorPage extends AppCompatActivity {
                             doctorAdapter.notifyDataSetChanged();
                         }
 
+                        return;
                     }
 
 

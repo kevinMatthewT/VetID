@@ -1,5 +1,6 @@
 package com.example.vetid;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,14 +11,20 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 public class HomePage extends AppCompatActivity {
 
     TextView GroomingPage,HealthPage,ForumPage,SuppliesPage;
 
-    Button logout,tempo;
+    Button logout,doctorButton;
 
     FirebaseAuth fAuth;
+    FirebaseFirestore fstore;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,8 +37,9 @@ public class HomePage extends AppCompatActivity {
 
         logout=findViewById(R.id.logOutButton);
         fAuth= FirebaseAuth.getInstance();
+        fstore=FirebaseFirestore.getInstance();
 
-        tempo=findViewById(R.id.temporaryButton);
+        doctorButton=findViewById(R.id.doctorButton);
 
         GroomingPage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,11 +82,21 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
-        tempo.setOnClickListener(new View.OnClickListener() {
+        doctorButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(),DoctorPage.class));
                 finish();
+            }
+        });
+
+        DocumentReference documentReference=fstore.collection("users").document(fAuth.getCurrentUser().getUid());
+        documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                if(value.getBoolean("is_doctor")==true){
+                    doctorButton.setVisibility(View.VISIBLE);
+                }
             }
         });
     }

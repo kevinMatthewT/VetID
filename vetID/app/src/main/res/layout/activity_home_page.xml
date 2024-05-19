@@ -109,14 +109,16 @@
         app:layout_constraintVertical_bias="0.38" />
 
     <Button
-        android:id="@+id/temporaryButton"
+        android:id="@+id/doctorButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="Doctor Page"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.546"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/forumMenu"
-        app:layout_constraintVertical_bias="0.336" />
+        app:layout_constraintVertical_bias="0.046"
+        android:visibility="invisible"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
