@@ -167,6 +167,7 @@ public class DoctorSchedule extends AppCompatActivity  {
                 appointment.put("patient_email",null);
                 appointment.put("patient_phone",null);
                 appointment.put("doctor_UID",UID);
+                appointment.put("doctor_username",formDoctor);
 
                 documentReferenceDoctors.set(schedule).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -176,6 +177,10 @@ public class DoctorSchedule extends AppCompatActivity  {
                 });
 
                 documentReferenceAppointments.set(appointment);
+
+                DocumentReference documentReference=fstore.collection("users").document(fAuth.getCurrentUser().getUid());
+
+
 
             }
         });

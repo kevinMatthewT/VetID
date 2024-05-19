@@ -30,16 +30,30 @@
             app:layout_constraintTop_toTopOf="@+id/linearLayout" />
 
 
+
+
     </LinearLayout>
 
     <Button
         android:id="@+id/logOutButton"
-        android:layout_width="184dp"
+        android:layout_width="100dp"
         android:layout_height="49dp"
         android:text="Log Out"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.98"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.02" />
+
+    <Button
+        android:id="@+id/applyDoctorButton"
+        android:layout_width="150dp"
+        android:layout_height="49dp"
+        android:text="Apply Doctor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="@+id/linearLayout"
         app:layout_constraintTop_toTopOf="@+id/linearLayout"
         app:layout_constraintVertical_bias="0.02" />

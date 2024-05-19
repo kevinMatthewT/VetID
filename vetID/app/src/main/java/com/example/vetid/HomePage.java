@@ -17,11 +17,14 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class HomePage extends AppCompatActivity {
 
     TextView GroomingPage,HealthPage,ForumPage,SuppliesPage;
 
-    Button logout,doctorButton;
+    Button logout,doctorButton,applyDoctor;
 
     FirebaseAuth fAuth;
     FirebaseFirestore fstore;
@@ -40,6 +43,7 @@ public class HomePage extends AppCompatActivity {
         fstore=FirebaseFirestore.getInstance();
 
         doctorButton=findViewById(R.id.doctorButton);
+        applyDoctor=findViewById(R.id.applyDoctorButton);
 
         GroomingPage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,7 +100,18 @@ public class HomePage extends AppCompatActivity {
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                 if(value.getBoolean("is_doctor")==true){
                     doctorButton.setVisibility(View.VISIBLE);
+                    applyDoctor.setVisibility(View.INVISIBLE);
                 }
+            }
+        });
+
+        applyDoctor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DocumentReference documentReference=fstore.collection("users").document(fAuth.getCurrentUser().getUid());
+                Map<String,Object> toggle= new HashMap<>();
+                toggle.put("is_doctor",true);
+                documentReference.update(toggle);
             }
         });
     }
