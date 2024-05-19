@@ -33,6 +33,7 @@ public class HomePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
+        //References all of the id of elements in the home page
         GroomingPage=findViewById(R.id.groomingMenu);
         ForumPage=findViewById(R.id.forumMenu);
         HealthPage=findViewById(R.id.healthMenu);
@@ -45,6 +46,7 @@ public class HomePage extends AppCompatActivity {
         doctorButton=findViewById(R.id.doctorButton);
         applyDoctor=findViewById(R.id.applyDoctorButton);
 
+        //Redirects with on click to different pages
         GroomingPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,6 +79,7 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
+        //logout button to logout a current user that is signed in
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,6 +89,7 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
+        //allows to go to the doctor page
         doctorButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,6 +98,7 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
+        //a condition that a user is a doctor by checking a bool value in the is_doctor field
         DocumentReference documentReference=fstore.collection("users").document(fAuth.getCurrentUser().getUid());
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
@@ -105,6 +110,7 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
+        //allows user to apply to become a doctor
         applyDoctor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

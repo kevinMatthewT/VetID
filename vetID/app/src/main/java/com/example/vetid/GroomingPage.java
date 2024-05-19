@@ -45,7 +45,7 @@ public class GroomingPage extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-
+        //initialize the available appointments
         fstore= FirebaseFirestore.getInstance();
         auth= FirebaseAuth.getInstance();
         appointmentModels=new ArrayList<AppointmentModel>();
@@ -64,12 +64,14 @@ public class GroomingPage extends AppCompatActivity {
 
         });
 
+        //calls the event to put all of the information of the card
         eventChageListener();
 
 
     }
+
+    //grabs all of the available appointments that exist in the appointment collection
     private void eventChageListener() {
-//                UID=auth.getCurrentUser().getUid();
         fstore.collection("appointment")
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
@@ -82,6 +84,7 @@ public class GroomingPage extends AppCompatActivity {
                         for (DocumentChange dc : value.getDocumentChanges()) {
 
                             if (dc.getType() == DocumentChange.Type.ADDED) {
+                                //gets the information based on the Appointment model
                                 appointmentModels.add(dc.getDocument().toObject(AppointmentModel.class));
 
                             }

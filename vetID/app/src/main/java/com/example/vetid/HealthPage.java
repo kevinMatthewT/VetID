@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.TextView;
 
 public class HealthPage extends AppCompatActivity {
+    //empty page coming soon
 
     TextView vetIdLogo;
     @Override

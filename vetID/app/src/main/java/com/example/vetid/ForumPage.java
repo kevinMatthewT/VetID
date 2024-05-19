@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 public class ForumPage extends AppCompatActivity {
 
+    //empty page coming soon
     TextView vetIdLogo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

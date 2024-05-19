@@ -30,8 +30,6 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
     Context context;
     ArrayList<AppointmentModel> allAppointments;
 
-    FirebaseFirestore fstore;
-    private DocumentReference users;
 
 
     public AppointmentAdapter(Context context, ArrayList<AppointmentModel> allAppointments) {
@@ -39,6 +37,7 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
         this.allAppointments = allAppointments;
     }
 
+    // function to reference the appointment_card.xml to place data
     @NonNull
     @Override
     public myViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -46,6 +45,7 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
         return new AppointmentAdapter.myViewHolder(v);
     }
 
+    //used to set the information grabbed from the appointment models into the appointment card
     @Override
     public void onBindViewHolder(@NonNull myViewHolder holder, int position) {
         AppointmentModel appointments=allAppointments.get(position);
@@ -58,11 +58,13 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
         holder.address.setText(appointments.address);
     }
 
+    //returns all of the items in the appointment list
     @Override
     public int getItemCount() {
         return allAppointments.size();
     }
 
+    //Used to reference the id of texts in the appointment cards
     public static class myViewHolder extends RecyclerView.ViewHolder{
 
         TextView name,animal, time, date,desc,address;

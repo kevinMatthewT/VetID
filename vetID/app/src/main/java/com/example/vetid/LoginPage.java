@@ -26,6 +26,7 @@ public class LoginPage extends AppCompatActivity {
     TextView forgotPassword, signUpRedirect;
     FirebaseAuth mAuth;
 
+    //sends user to home page if user is signed in
     @Override
     public void onStart() {
         super.onStart();
@@ -42,7 +43,7 @@ public class LoginPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_page);
 
-
+        //References the id of the elements in the page
         emailUsername =findViewById(R.id.emailForm);
         userPassword= findViewById(R.id.passwordForm);
         login =findViewById(R.id.loginButton);
@@ -50,7 +51,7 @@ public class LoginPage extends AppCompatActivity {
         signUpRedirect =findViewById(R.id.signUp);
         mAuth=FirebaseAuth.getInstance();
 
-
+        //Login button that reads in the field input that the user put in
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,6 +64,7 @@ public class LoginPage extends AppCompatActivity {
                     return;
                 }
 
+                //Checks if the user is signed in properly and exists
                 mAuth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener( new OnCompleteListener<AuthResult>() {
                             @Override
@@ -83,6 +85,7 @@ public class LoginPage extends AppCompatActivity {
             }
         });
 
+        //redirects to the sign up page if user has no account
         signUpRedirect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

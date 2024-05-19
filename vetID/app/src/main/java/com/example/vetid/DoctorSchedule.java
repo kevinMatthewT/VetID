@@ -51,11 +51,12 @@ public class DoctorSchedule extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_schedule);
 
+
         goBack=findViewById(R.id.backToDoctor);
         vetIdLogo=findViewById(R.id.logo);
 
 
-        //field information
+        //field input information
         title=findViewById(R.id.titleField);
         description=findViewById(R.id.descriptionField);
         time=findViewById(R.id.timeField);
@@ -71,6 +72,7 @@ public class DoctorSchedule extends AppCompatActivity  {
 
         submitFormButton=findViewById(R.id.submitForm);
 
+        //logo to return to home page
         vetIdLogo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,7 +82,7 @@ public class DoctorSchedule extends AppCompatActivity  {
             }
         });
 
-
+        //Button to go back to see all of the appointments the current logged in doctor made
         goBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,6 +91,7 @@ public class DoctorSchedule extends AppCompatActivity  {
             }
         });
 
+        //Used to select the time for the field input
         time.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,6 +99,7 @@ public class DoctorSchedule extends AppCompatActivity  {
             }
         });
 
+        //Used to select the date for the field input
         date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,10 +107,11 @@ public class DoctorSchedule extends AppCompatActivity  {
             }
         });
 
+        //get the UID of the current user/doctor
         UID=fAuth.getCurrentUser().getUid();
 
 
-
+        //get the username of the doctor on the users collection based on the UID of current user
         DocumentReference documentReference=fstore.collection("users").document(UID);
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
@@ -115,10 +120,11 @@ public class DoctorSchedule extends AppCompatActivity  {
             }
         });
 
-
+        //Submit details to firebase
         submitFormButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //getting all values of the fields that exist in the form
                 String formTitle=String.valueOf(title.getText());
                 String formDescription=String.valueOf(description.getText());
                 String formTime=String.valueOf(time.getText());
@@ -128,18 +134,19 @@ public class DoctorSchedule extends AppCompatActivity  {
                 String formPrice=String.valueOf(price.getText());
                 String formDoctor=String.valueOf(usernameDoc.getText());
 
+                //error handing to make sure important details are not empty
                 if(TextUtils.isEmpty(formTitle)  || TextUtils.isEmpty(formAnimal)||TextUtils.isEmpty(formAddress)){
                     Toast.makeText(getApplicationContext(),"Fill all of the details to create schedule",Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-
-
-
-
+                //set an appointment to a random UUID
                 UUID uuid = UUID.randomUUID();
+
+                //Referencing to the appointment collection in the doctor collection
                 DocumentReference documentReferenceDoctors=fstore.collection("doctors").document(UID).collection("appointments").document(uuid.toString());
 
+                //putting all of the fields to place
                 Map<String,Object> schedule= new HashMap<>();
                 schedule.put("title",formTitle);
                 schedule.put("description",formDescription);
@@ -153,8 +160,11 @@ public class DoctorSchedule extends AppCompatActivity  {
                 schedule.put("patient_phone",null);
                 schedule.put("doctor_username",formDoctor);
 
+
+                //referencing to an appointment collection
                 DocumentReference documentReferenceAppointments=fstore.collection("appointment").document(uuid.toString());
 
+                //putting all of the fields to place
                 Map<String,Object> appointment= new HashMap<>();
                 appointment.put("title",formTitle);
                 appointment.put("description",formDescription);
@@ -169,6 +179,7 @@ public class DoctorSchedule extends AppCompatActivity  {
                 appointment.put("doctor_UID",UID);
                 appointment.put("doctor_username",formDoctor);
 
+                //placing all of the data in each hashmap in their respective collection
                 documentReferenceDoctors.set(schedule).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
@@ -190,6 +201,8 @@ public class DoctorSchedule extends AppCompatActivity  {
 
 
     }
+
+    //function used to select the time
     public void popTimePicker() {
         TimePickerDialog.OnTimeSetListener onTimeSetListener=new TimePickerDialog.OnTimeSetListener() {
             @Override
@@ -201,9 +214,9 @@ public class DoctorSchedule extends AppCompatActivity  {
         };
         TimePickerDialog timePickerDialog=new TimePickerDialog(this,onTimeSetListener,hour,minute,true);
         timePickerDialog.show();
-//                time.setText(getDate());
     }
 
+    //function used to select the date
     public void setDate() {
         Calendar calendar=Calendar.getInstance();
         int mYear,mMonth,mDay;

@@ -23,6 +23,7 @@ public class DoctorScheduleAdapter extends RecyclerView.Adapter<DoctorScheduleAd
         this.doctorSchedule = doctorSchedule;
     }
 
+    // function to reference the doctor_schedule.xml to place data
     @NonNull
     @Override
     public DoctorScheduleAdapter.myViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -30,6 +31,7 @@ public class DoctorScheduleAdapter extends RecyclerView.Adapter<DoctorScheduleAd
         return new myViewHolder(v);
     }
 
+    //used to set the information grabbed from the DoctorScheduleModel into the doctor_schedule
     @Override
     public void onBindViewHolder(@NonNull DoctorScheduleAdapter.myViewHolder holder, int position) {
         DoctorScheduleModel schedule=doctorSchedule.get(position);
@@ -44,11 +46,13 @@ public class DoctorScheduleAdapter extends RecyclerView.Adapter<DoctorScheduleAd
 
     }
 
+    //returns all of the items in the doctor list
     @Override
     public int getItemCount() {
         return doctorSchedule.size();
     }
 
+    //Used to reference the id of texts in the doctor_schedule
     public static class myViewHolder extends RecyclerView.ViewHolder{
 
         TextView name,pet,timeOfService,dateOfService,customerName,customerEmail;

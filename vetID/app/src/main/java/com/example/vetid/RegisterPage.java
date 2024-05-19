@@ -36,6 +36,7 @@ public class RegisterPage extends AppCompatActivity {
 
     String UID;
 
+    //sends user to home page if user is signed in
     @Override
     public void onStart() {
         super.onStart();
@@ -52,6 +53,7 @@ public class RegisterPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_page);
 
+        //Reference the elements in the activity_register_page.xml
         emailUsername=findViewById(R.id.emailForm);
         userPassword=findViewById(R.id.passwordForm);
         Username=findViewById(R.id.usernameForm);
@@ -64,10 +66,12 @@ public class RegisterPage extends AppCompatActivity {
         mAuth=FirebaseAuth.getInstance();
         fstore=FirebaseFirestore.getInstance();
 
-
+        //button that is used to register a new user
         registerUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                //get the user input in all of the field
                 String email,password,username,phone;
 
                 email=String.valueOf(emailUsername.getText());
@@ -75,18 +79,20 @@ public class RegisterPage extends AppCompatActivity {
                 username=String.valueOf(Username.getText());
                 phone=String.valueOf(phoneNumber.getText());
 
+                //makes sure field are not empty
                 if(TextUtils.isEmpty(email) || TextUtils.isEmpty(password)|| TextUtils.isEmpty(phone) || TextUtils.isEmpty(username)){
                     Toast.makeText(getApplicationContext(),"Fill all of the details to register",Toast.LENGTH_SHORT).show();
                     return;
                 }
 
+                //registers the user using Firebase authentication
                 mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    // Sign in success, update UI with the signed-in user's information
-                                    // FirebaseUser user = mAuth.getCurrentUser();
+
+                                    //gets the user id and put in the users collection with default information
                                     UID=mAuth.getCurrentUser().getUid();
                                     DocumentReference documentReference=fstore.collection("users").document(UID);
 
@@ -105,6 +111,7 @@ public class RegisterPage extends AppCompatActivity {
                                         }
                                     });
 
+                                    //redirects user to login page
                                     startActivity(new Intent(RegisterPage.this,LoginPage.class));
 
                                 } else {

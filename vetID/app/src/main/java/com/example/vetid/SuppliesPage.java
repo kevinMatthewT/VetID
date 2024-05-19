@@ -15,6 +15,8 @@ public class SuppliesPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_supplies_page);
 
+        //empty page coming soon
+
         vetIdLogo=findViewById(R.id.logo);
 
         vetIdLogo.setOnClickListener(new View.OnClickListener() {

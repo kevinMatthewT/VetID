@@ -1,6 +1,7 @@
 package com.example.vetid;
 
 public class DoctorScheduleModel {
+    //file containing the getter, setters and constructors for variable to change in the view and grabbing data from firebase
     String title,animal, time, date,patient_email,patient_name;
 
     DoctorScheduleModel(){

@@ -25,12 +25,16 @@ public class DoctorPage extends AppCompatActivity {
 
     TextView makeScheduleRedirect,vetIdLogo;
 
+    // variable for the uid of user
     String UID;
 
+    //for the display of all of the schedule/appointments created
     RecyclerView recyclerView;
 
     ArrayList<DoctorScheduleModel> doctorSchedule;
     DoctorScheduleAdapter doctorAdapter;
+
+    //for connection to firebase
     FirebaseFirestore fstore;
     FirebaseAuth auth;
     @Override
@@ -38,6 +42,7 @@ public class DoctorPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_page);
 
+        //references the id or variables in the activity_doctor_page.xml
         makeScheduleRedirect=findViewById(R.id.createSchedule);
         vetIdLogo=findViewById(R.id.logo);
 
@@ -45,13 +50,15 @@ public class DoctorPage extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-
+        //Initialize the conntetion to the database, the current user and a list for
+        //displaying all appointments
         fstore=FirebaseFirestore.getInstance();
         auth=FirebaseAuth.getInstance();
         doctorSchedule=new ArrayList<DoctorScheduleModel>();
         doctorAdapter=new DoctorScheduleAdapter(DoctorPage.this,doctorSchedule);
         recyclerView.setAdapter(doctorAdapter);
 
+        //logo to return to home page
         vetIdLogo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,7 +68,7 @@ public class DoctorPage extends AppCompatActivity {
             }
         });
 
-
+        //go to a doctor exclusive activity to create schedules
         makeScheduleRedirect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,13 +76,15 @@ public class DoctorPage extends AppCompatActivity {
                 finish();
             }
         });
-        
+
+        //calling a function to get and display the collection in a recycler view display
         eventChageListener();
 
 
     }
 
     private void eventChageListener() {
+        //grabs all of the appointments that a doctor creates based on the current UID that is logged in
         UID=auth.getCurrentUser().getUid();
         fstore.collection("doctors").document(UID).collection("appointments")
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
