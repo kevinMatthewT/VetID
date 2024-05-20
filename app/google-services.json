@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "66211962408",
+    "firebase_url": "https://vetid-595c3-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "vetid-595c3",
+    "storage_bucket": "vetid-595c3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:66211962408:android:cca5ffe93cfa7f4c875f1d",
+        "android_client_info": {
+          "package_name": "com.example.vetid"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDavPYMqSOYezfELZ4vV0VkheLdAF074LE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:66211962408:android:8d9a1f64c6d34c12875f1d",
+        "android_client_info": {
+          "package_name": "com.example.vettest"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDavPYMqSOYezfELZ4vV0VkheLdAF074LE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
