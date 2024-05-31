@@ -52,9 +52,6 @@
             android:name=".DoctorScheduleAdapter"
             android:exported="false" />
         <activity
-            android:name=".DocterSchedule"
-            android:exported="false" />
-        <activity
             android:name=".DoctorPage"
             android:exported="false" />
         <activity
@@ -65,6 +62,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:exported="false" />
     </application>
 
