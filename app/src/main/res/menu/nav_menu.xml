@@ -1,4 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn = "navigation_view">
+
+    <item
+        android:title="General">
+
+        <menu>
+            <item
+                android:id="@+id/nav_home"
+                android:icon="@drawable/nav_home"
+                android:title="Home"/>
+
+            <item
+                android:id="@+id/nav_order"
+                android:icon="@drawable/nav_order"
+                android:title="Orders"/>
+
+            <item
+                android:id="@+id/nav_chat"
+                android:icon="@drawable/nav_chat"
+                android:title="Chats"/>
+        </menu>
+    </item>
+
+    <item
+        android:title="Options">
+
+        <menu>
+            <item
+                android:id="@+id/nav_profile"
+                android:icon="@drawable/nav_profile"
+                android:title="Profile"/>
+
+            <item
+                android:id="@+id/nav_doctor"
+                android:icon="@drawable/nav_doctor"
+                android:title="Apply Doctor"/>
+
+            <item
+                android:id="@+id/nav_groom"
+                android:icon="@drawable/nav_groom"
+                android:title="Apply Grooming"/>
+        </menu>
+    </item>
+
+    <item
+        android:title="Settings">
+
+        <menu>
+            <item
+                android:id="@+id/nav_setting"
+                android:icon="@drawable/nav_setting"
+                android:title="Settings"/>
+
+            <item
+                android:id="@+id/nav_info"
+                android:icon="@drawable/nav_info"
+                android:title="About Us"/>
+        </menu>
+    </item>
+
+    <item
+        android:title="">
+
+        <menu>
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/nav_logout"
+                android:title="Logout"/>
+        </menu>
+    </item>
+
+
+
 
 </menu>
