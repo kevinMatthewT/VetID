@@ -12,12 +12,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.myViewHolder> {
+    private final RecyclerViewInterface recyclerViewInterface;
     Context context;
     ArrayList<ForumModel> allForums;
 
-    public ForumAdapter(Context context, ArrayList<ForumModel> allForums) {
+    public ForumAdapter(Context context, ArrayList<ForumModel> allForums, RecyclerViewInterface recyclerViewInterface) {
         this.context = context;
         this.allForums = allForums;
+        this.recyclerViewInterface=recyclerViewInterface;
     }
 
 
@@ -25,7 +27,7 @@ public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.myViewHolder
     @Override
     public myViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v= LayoutInflater.from(context).inflate(R.layout.forum_card,parent,false);
-        return new ForumAdapter.myViewHolder(v);
+        return new ForumAdapter.myViewHolder(v,recyclerViewInterface);
     }
 
     //used to set the information grabbed from the appointment models into the appointment card
@@ -49,11 +51,24 @@ public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.myViewHolder
 
         TextView name,description,uuid;
 
-        public myViewHolder(@NonNull View itemView) {
+        public myViewHolder(@NonNull View itemView,RecyclerViewInterface recyclerViewInterface) {
             super(itemView);
             name=itemView.findViewById(R.id.forumUsername);
             description=itemView.findViewById(R.id.forumContent);
             uuid=itemView.findViewById(R.id.uuidForum);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (recyclerViewInterface!=null){
+                        int pos=getAdapterPosition();
+
+                        if (pos!=RecyclerView.NO_POSITION){
+                            recyclerViewInterface.onItemClick(pos);
+                        }
+                    }
+                }
+            });
         }
     }
 

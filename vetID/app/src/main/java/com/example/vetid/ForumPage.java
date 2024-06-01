@@ -21,7 +21,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
-public class ForumPage extends AppCompatActivity {
+public class ForumPage extends AppCompatActivity implements RecyclerViewInterface{
 
     //empty page coming soon
     TextView vetIdLogo,makeForumRedirect;
@@ -52,7 +52,7 @@ public class ForumPage extends AppCompatActivity {
         fstore=FirebaseFirestore.getInstance();
         auth=FirebaseAuth.getInstance();
         forumList=new ArrayList<ForumModel>();
-        forumAdapter=new ForumAdapter(ForumPage.this,forumList);
+        forumAdapter=new ForumAdapter(ForumPage.this,forumList,this);
         recyclerView.setAdapter(forumAdapter);
 
 
@@ -107,5 +107,15 @@ public class ForumPage extends AppCompatActivity {
 
 
                 });
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        Intent intent=new Intent(ForumPage.this, ForumReplies.class);
+        intent.putExtra("forumUUID",forumList.get(position).getForumUUID());
+        intent.putExtra("forumName",forumList.get(position).getForumUsername());
+        intent.putExtra("forumDescription",forumList.get(position).getForumDescription());
+
+        startActivity(intent);
     }
 }

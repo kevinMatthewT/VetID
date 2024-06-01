@@ -15,6 +15,9 @@
         android:theme="@style/Theme.VetID"
         tools:targetApi="31">
         <activity
+            android:name=".ForumReplies"
+            android:exported="false" />
+        <activity
             android:name=".CreateForumPage"
             android:exported="false" />
         <activity
