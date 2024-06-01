@@ -84,7 +84,8 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 fAuth.signOut();
-                startActivity(new Intent(getApplicationContext(),LoginPage.class));
+                Intent redirect= new Intent(getApplicationContext(),LoginPage.class);
+                startActivity(redirect);
                 finish();
             }
         });
