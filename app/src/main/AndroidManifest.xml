@@ -13,6 +13,16 @@
         android:theme="@style/Theme.VetTest"
         tools:targetApi="31">
         <activity
+            android:name=".ForumReplies"
+            android:exported="false"
+            android:label="@string/title_activity_forum_replies"
+            android:theme="@style/Theme.VetTest" />
+        <activity
+            android:name=".CreateForumPage"
+            android:exported="false"
+            android:label="@string/title_activity_create_forum_page"
+            android:theme="@style/Theme.VetTest" />
+        <activity
             android:name=".DoctorSchedule"
             android:exported="false" />
         <activity
@@ -62,8 +72,8 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
 
 </manifest>

@@ -32,7 +32,7 @@ public class LoginPage extends AppCompatActivity {
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
-            Intent redirect= new Intent(getApplicationContext(),HomePage.class);
+            Intent redirect= new Intent(getApplicationContext(), MainActivity.class);
             startActivity(redirect);
             finish();
         }
@@ -70,7 +70,7 @@ public class LoginPage extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     // Sign in success, update UI with the signed-in user's information
                                     Toast.makeText(getApplicationContext(),"Success",Toast.LENGTH_SHORT).show();
-                                    Intent redirect= new Intent(getApplicationContext(),HomePage.class);
+                                    Intent redirect= new Intent(getApplicationContext(), MainActivity.class);
                                     startActivity(redirect);
                                     finish();
                                 } else {

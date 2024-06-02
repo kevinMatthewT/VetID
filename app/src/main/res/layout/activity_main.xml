@@ -16,12 +16,39 @@
 
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
-            android:layout_height="56dp"
+            android:layout_height="60dp"
             android:id="@+id/toolbar"
             android:elevation="4dp"
             android:background="@color/PaleYellow"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:popupTheme="@style/Theme.AppCompat.Light"/>
+            app:popupTheme="@style/Theme.AppCompat.Light">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/logo"
+                    android:id="@+id/main_logo"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="Logo" />
+
+                <ImageButton
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/search_icon"
+                    android:layout_gravity="end|center_vertical"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    app:tint="@color/RedIcon"
+                    android:layout_marginEnd="10dp"
+                    android:id="@+id/main_search_btn"/>
+
+            </FrameLayout>
+
+
+        </androidx.appcompat.widget.Toolbar>
 
         <FrameLayout
             android:id="@+id/fragment_container"
