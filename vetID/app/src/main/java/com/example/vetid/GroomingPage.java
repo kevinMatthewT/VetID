@@ -56,7 +56,7 @@ public class GroomingPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(GroomingPage.this,HomePage.class));
+                startActivity(new Intent(GroomingPage.this,MainActivity.class));
 
 
             }

@@ -62,7 +62,7 @@ public class ForumPage extends AppCompatActivity implements RecyclerViewInterfac
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(ForumPage.this,HomePage.class));
+                startActivity(new Intent(ForumPage.this,MainActivity.class));
 
             }
 

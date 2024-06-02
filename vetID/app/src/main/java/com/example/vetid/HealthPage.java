@@ -22,7 +22,7 @@ public class HealthPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(HealthPage.this,HomePage.class));
+                startActivity(new Intent(HealthPage.this,MainActivity.class));
 
             }
         });

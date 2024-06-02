@@ -23,7 +23,7 @@ public class SuppliesPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                        startActivity(new Intent(SuppliesPage.this,HomePage.class));
+                        startActivity(new Intent(SuppliesPage.this,MainActivity.class));
 
             }
         });

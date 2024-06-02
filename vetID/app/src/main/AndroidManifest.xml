@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -16,7 +14,7 @@
         tools:targetApi="31">
         <activity
             android:name=".ForumReplies"
-            android:exported="false" />
+            android:exported="false"/>
         <activity
             android:name=".CreateForumPage"
             android:exported="false" />
@@ -24,28 +22,10 @@
             android:name=".DoctorSchedule"
             android:exported="false" />
         <activity
-            android:name=".DoctorPage"
-            android:exported="false" />
-        <activity
-            android:name=".ServicesSchedule"
-            android:exported="false" />
-        <activity
             android:name=".SuppliesPage"
             android:exported="false" />
         <activity
-            android:name=".ForumPage"
-            android:exported="false" />
-        <activity
-            android:name=".HealthPage"
-            android:exported="false" />
-        <activity
-            android:name=".GroomingPage"
-            android:exported="false" />
-        <activity
-            android:name=".HomePage"
-            android:exported="false" />
-        <activity
-            android:name=".RegisterPage"
+            android:name=".ServicesSchedule"
             android:exported="false" />
         <activity
             android:name=".LoginPage"
@@ -56,6 +36,40 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".RegisterPage"
+            android:exported="false" />
+        <activity
+            android:name=".HomePage"
+            android:exported="false" />
+        <activity
+            android:name=".HealthPage"
+            android:exported="false" />
+        <activity
+            android:name=".GroomingPage"
+            android:exported="false" />
+        <activity
+            android:name=".ForumPage"
+            android:exported="false" />
+        <activity
+            android:name=".DoctorScheduleModel"
+            android:exported="false" />
+        <activity
+            android:name=".DoctorScheduleAdapter"
+            android:exported="false" />
+        <activity
+            android:name=".DoctorPage"
+            android:exported="false" />
+        <activity
+            android:name=".AppointmentModel"
+            android:exported="false" />
+        <activity
+            android:name=".AppointmentAdapter"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
 
 </manifest>
