@@ -94,8 +94,21 @@ public class HomePage extends AppCompatActivity {
         doctorButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),DoctorPage.class));
-                finish();
+
+//                DocumentReference documentReference=fstore.collection("users").document(fAuth.getCurrentUser().getUid());
+//
+//                documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+//                    @Override
+//                    public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+//                        if(value.getBoolean("is_doctor")==true){
+                            startActivity(new Intent(getApplicationContext(),DoctorPage.class));
+                            finish();
+//                        }else {
+//                            Toast.makeText(getApplicationContext(), "You are not a doctor, you cannot acces the page", Toast.LENGTH_SHORT).show();
+//                        }
+//                    }
+//                });
+
             }
         });
 

@@ -32,7 +32,7 @@ import java.util.UUID;
 
 public class ForumReplies extends AppCompatActivity {
 
-    TextView forumUser,forumInformation, vetIdLogo ,reply,usersusername;
+    TextView forumUser,forumInformation, vetIdLogo ,reply,usersusername, returnForumPage;
 
     RecyclerView recyclerView;
 
@@ -74,6 +74,7 @@ public class ForumReplies extends AppCompatActivity {
         replyfield=findViewById(R.id.replyField);
         usersusername=findViewById(R.id.usersUsername);
 
+        returnForumPage=findViewById(R.id.backToForum);
         vetIdLogo=findViewById(R.id.logo);
         vetIdLogo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,6 +84,13 @@ public class ForumReplies extends AppCompatActivity {
 
             }
 
+        });
+
+        returnForumPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ForumReplies.this,ForumPage.class));
+            }
         });
 
         DocumentReference documentUser=fstore.collection("users").document(auth.getCurrentUser().getUid());
